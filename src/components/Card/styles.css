@@ -1,0 +1,33 @@
+.user-img-round {
+  margin-top: 15px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.link {
+  height: 40px;
+  width: 130px;
+  border-radius: 6px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  background-color: rgba(82, 161, 112, 0.877);
+  cursor: pointer;
+  border-color: rgba(82, 161, 112, 0.877);
+  font-size: 14.5px;
+}
+
+.user-card {
+  border: dotted;
+  border-width: 1px;
+  border-radius: 8px;
+  height: 200px;
+  width: 350px;
+  margin-left: 80px;
+  margin-top: 20px;
+}
+
+.user-name {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

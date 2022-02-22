@@ -1,0 +1,167 @@
+.link-back {
+  height: 40px;
+  width: 130px;
+  border-radius: 6px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  background-color: rgb(44, 44, 44);
+  cursor: pointer;
+  border-color: rgb(44, 44, 44);
+  margin-top: 30px;
+  margin-left: 174px;
+  font-size: 14px;
+}
+.link-back:hover {
+  background-color: rgb(68, 68, 68);
+  border-color: rgb(68, 68, 68);
+}
+
+.info-container {
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 1000px;
+  height: 600px;
+}
+
+.main-info {
+  margin-top: 20px;
+  border: dotted;
+  border-width: 0.1px;
+  border-color: rgb(173, 173, 168);
+  border-radius: 6px;
+  height: fit-content;
+  display: flex;
+}
+
+.user-img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: 80px;
+}
+
+.user-name-main {
+  margin-left: 82px;
+}
+
+.user-location {
+  margin-left: 92px;
+}
+.main-right {
+  text-align: center;
+  margin-left: 200px;
+}
+
+.about-title {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.github-link {
+  width: fit-content;
+  height: 45px;
+  background-color: rgb(24, 141, 69);
+  border-color: rgb(24, 141, 69);
+  color: white;
+  padding: 1em 1.5em;
+  border-radius: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.github-link:hover {
+  background-color: rgb(28, 163, 80);
+  border-color: rgb(28, 163, 80);
+}
+
+.a-container {
+  margin-top: 50px;
+}
+
+.secondary-info {
+  margin-top: 20px;
+  border: dotted;
+  border-width: 0.1px;
+  border-color: rgb(173, 173, 168);
+  border-radius: 6px;
+  height: 100px;
+  text-align: center;
+}
+
+.user-button {
+  height: 30px;
+  width: fit-content;
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.light-color {
+  background-color: rgb(219, 219, 174);
+  border-color: rgb(219, 219, 174);
+}
+
+.dark-color {
+  background-color: rgb(39, 38, 38);
+  color: aliceblue;
+  border-color: rgb(39, 38, 38);
+}
+.light-blue {
+  background-color: rgb(20, 184, 196);
+  border-color: rgb(20, 184, 196);
+  color: aliceblue;
+}
+.light-green {
+  background-color: rgb(24, 141, 69);
+  color: rgb(224, 214, 214);
+  border-color: rgb(24, 141, 69);
+}
+
+.last-5-repos-container {
+  height: fit-content;
+  margin-top: 20px;
+  border: dotted;
+  border-width: 0.1px;
+  border-color: rgb(173, 173, 168);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.main-left {
+  text-align: center;
+  width: 260px;
+}
+
+.repo {
+  margin-top: 20px;
+  border: dotted;
+  border-width: 0.1px;
+  border-color: rgb(173, 173, 168);
+  border-radius: 6px;
+  height: 100px;
+  text-align: center;
+}
+.repo-link {
+  margin-top: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgb(6, 125, 180);
+}
+.repo-link:hover {
+  color: rgb(0, 168, 247);
+}
+
+.repo-description {
+  margin-top: -6px;
+}
+
+.updated {
+  margin-top: -6px;
+}

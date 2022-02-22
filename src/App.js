@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useState } from "react";
+import Container from "./Container";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import UserInfo from "./components/UserInfo/UserInfo";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState({});
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/userinfo"
+            element={<UserInfo currentUser={currentUser} />}
+          />
+          <Route
+            path="/"
+            element={<Container setCurrentUser={setCurrentUser} />}
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -11,6 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
+            exact
             path="/userinfo"
             element={<UserInfo currentUser={currentUser} />}
           />

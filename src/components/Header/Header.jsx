@@ -7,7 +7,7 @@ function Header() {
   return (
     <AppBar position="static">
       <CssBaseline />
-      <Toolbar style={{ backgroundColor: "rgb(36, 36, 37)" }}>
+      <Toolbar style={{ backgroundColor: "#282828" }}>
         <Typography variant="h6" className="logo">
           <img src={gitHubIcon} alt="" className="img" />
           Index GitHub

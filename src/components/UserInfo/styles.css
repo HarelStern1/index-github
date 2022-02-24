@@ -1,12 +1,11 @@
 .link-back {
   height: 40px;
   width: 130px;
+  border: none;
   border-radius: 6px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   background-color: rgb(44, 44, 44);
   cursor: pointer;
-  border-color: rgb(44, 44, 44);
   margin-top: 30px;
   margin-left: 174px;
   font-size: 14px;
@@ -22,6 +21,7 @@
   margin-bottom: 30px;
   width: 1000px;
   height: 600px;
+  color: white;
 }
 
 .main-info {
@@ -62,8 +62,8 @@
 .github-link {
   width: fit-content;
   height: 45px;
+  border: none;
   background-color: rgb(24, 141, 69);
-  border-color: rgb(24, 141, 69);
   color: white;
   padding: 1em 1.5em;
   border-radius: 8px;
@@ -75,7 +75,6 @@
 
 .github-link:hover {
   background-color: rgb(28, 163, 80);
-  border-color: rgb(28, 163, 80);
 }
 
 .a-container {
@@ -95,6 +94,7 @@
 .user-button {
   height: 30px;
   width: fit-content;
+  border: none;
   border-radius: 5px;
   margin-left: 20px;
   margin-top: 30px;
@@ -103,23 +103,20 @@
 
 .light-color {
   background-color: rgb(219, 219, 174);
-  border-color: rgb(219, 219, 174);
 }
 
 .dark-color {
   background-color: rgb(39, 38, 38);
   color: aliceblue;
-  border-color: rgb(39, 38, 38);
 }
 .light-blue {
   background-color: rgb(20, 184, 196);
-  border-color: rgb(20, 184, 196);
+
   color: aliceblue;
 }
 .light-green {
   background-color: rgb(24, 141, 69);
   color: rgb(224, 214, 214);
-  border-color: rgb(24, 141, 69);
 }
 
 .last-5-repos-container {
@@ -137,11 +134,13 @@
 }
 
 .repo {
+  margin: 0 auto;
   margin-top: 20px;
   border: dotted;
   border-width: 0.1px;
   border-color: rgb(173, 173, 168);
   border-radius: 6px;
+  width: 900px;
   height: 100px;
   text-align: center;
 }

@@ -1,0 +1,21 @@
+.about-container {
+  margin-top: 50px;
+  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-heading {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.about-content {
+  color: white;
+  margin-top: 10px;
+}
+
+.content-container {
+}

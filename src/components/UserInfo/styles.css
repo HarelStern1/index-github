@@ -4,15 +4,14 @@
   border: none;
   border-radius: 6px;
   color: white;
-  background-color: rgb(44, 44, 44);
+  background-image: linear-gradient(to bottom right, #444444, #727171);
   cursor: pointer;
   margin-top: 30px;
   margin-left: 174px;
   font-size: 14px;
 }
 .link-back:hover {
-  background-color: rgb(68, 68, 68);
-  border-color: rgb(68, 68, 68);
+  background-image: linear-gradient(to bottom right, #3a3939, #555252);
 }
 
 .info-container {
@@ -26,7 +25,7 @@
 
 .main-info {
   margin-top: 20px;
-  border: dotted;
+  border: solid;
   border-width: 0.1px;
   border-color: rgb(173, 173, 168);
   border-radius: 6px;
@@ -63,7 +62,11 @@
   width: fit-content;
   height: 45px;
   border: none;
-  background-color: rgb(24, 141, 69);
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(17, 87, 42),
+    rgb(43, 231, 115)
+  );
   color: white;
   padding: 1em 1.5em;
   border-radius: 8px;
@@ -74,7 +77,11 @@
 }
 
 .github-link:hover {
-  background-color: rgb(28, 163, 80);
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(31, 75, 46),
+    rgb(39, 185, 95)
+  );
 }
 
 .a-container {
@@ -83,7 +90,7 @@
 
 .secondary-info {
   margin-top: 20px;
-  border: dotted;
+  border: solid;
   border-width: 0.1px;
   border-color: rgb(173, 173, 168);
   border-radius: 6px;
@@ -122,7 +129,7 @@
 .last-5-repos-container {
   height: fit-content;
   margin-top: 20px;
-  border: dotted;
+  border: solid;
   border-width: 0.1px;
   border-color: rgb(173, 173, 168);
   border-radius: 6px;
@@ -136,12 +143,12 @@
 .repo {
   margin: 0 auto;
   margin-top: 20px;
-  border: dotted;
+  border: solid;
   border-width: 0.1px;
   border-color: rgb(173, 173, 168);
   border-radius: 6px;
   width: 900px;
-  height: 100px;
+  height: fit-content;
   text-align: center;
 }
 .repo-link {

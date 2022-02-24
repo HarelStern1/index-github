@@ -10,15 +10,14 @@
   width: 130px;
   border: none;
   border-radius: 6px;
-  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   color: white;
-  background-color: #2c2c2c;
+  background-image: linear-gradient(to bottom right, #444444, #727171);
   cursor: pointer;
   font-size: 15px;
 }
 
 .link:hover {
-  background-color: #3a3a3a;
+  background-image: linear-gradient(to bottom right, #1f1e1e, #555252);
 }
 
 .user-card {

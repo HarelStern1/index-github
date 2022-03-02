@@ -3,6 +3,7 @@ import "./styles.css";
 import { AppBar, Toolbar, CssBaseline, Typography } from "@material-ui/core";
 import gitHubIcon from "./../../images/github-logo.png";
 import { Link } from "react-router-dom";
+import LinkBtn from "./LinkBtn";
 
 function Header() {
   return (
@@ -10,23 +11,25 @@ function Header() {
       <CssBaseline />
       <Toolbar style={{ backgroundColor: "#282828" }}>
         <Typography variant="h6" className="logo">
-          <img src={gitHubIcon} alt="" className="img" />
+          <Link to="/">
+            <img src={gitHubIcon} alt="" className="img" />
+          </Link>
           Index GitHub
         </Typography>
         <div className="links">
           <Link to="/">
-            <button className="link-btn">
+            <LinkBtn>
               <Typography variant="h6" className="logo">
                 Home
               </Typography>
-            </button>
+            </LinkBtn>
           </Link>
           <Link to="/about">
-            <button className="link-btn">
+            <LinkBtn>
               <Typography variant="h6" className="logo">
                 About
               </Typography>
-            </button>
+            </LinkBtn>
           </Link>
         </div>
       </Toolbar>
@@ -35,3 +38,29 @@ function Header() {
 }
 
 export default Header;
+
+/*
+    <AppBar position="static">
+      <CssBaseline />
+      <Toolbar style={{ backgroundColor: "#282828" }}>
+        <Logo>
+          <Link to="/">
+            <Img src={gitHubIcon} alt="" />
+          </Link>
+          Index GitHub
+        </Logo>
+        <Links>
+          <Link to="/">
+            <LinkBtn>
+              <Logo>Home</Logo>
+            </LinkBtn>
+          </Link>
+          <Link to="/about">
+            <LinkBtn>
+              <Logo>About</Logo>
+            </LinkBtn>
+          </Link>
+        </Links>
+      </Toolbar>
+    </AppBar>
+*/

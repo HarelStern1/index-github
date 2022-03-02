@@ -1,26 +1,27 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
-import Header from "../Header/Header";
-import "./styles.css";
+import {
+  AboutContainer,
+  AboutHeading,
+  AboutContent,
+  AboutLink,
+} from "./About.styled";
 
 function About() {
   return (
     <>
-      <Header />
-      <div className="about-container">
-        <div className="about-heading">About</div>
-        <div className="content-container">
-          <Typography variant="h6" className="about-content">
-            Search GitHub users app.
-          </Typography>
-          <Typography variant="h6" className="about-content">
-            Built with React by Harel Stern.
-          </Typography>
-          <Typography variant="h6" className="about-content">
-            Version: 1.0.0
-          </Typography>
+      <AboutContainer>
+        <AboutHeading>About</AboutHeading>
+        <div>
+          <AboutContent>Search GitHub users app</AboutContent>
+          <AboutContent>
+            Built with React by{""}
+            <a href="https://github.com/HarelStern1" target="_blank">
+              <AboutLink>Harel Stern</AboutLink>
+            </a>
+          </AboutContent>
+          <AboutContent>Version: 1.0.0</AboutContent>
         </div>
-      </div>
+      </AboutContainer>
     </>
   );
 }

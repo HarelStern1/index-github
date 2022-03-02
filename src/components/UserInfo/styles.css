@@ -1,38 +1,3 @@
-.link-back {
-  height: 40px;
-  width: 130px;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  background-image: linear-gradient(to bottom right, #444444, #727171);
-  cursor: pointer;
-  margin-top: 30px;
-  margin-left: 174px;
-  font-size: 14px;
-}
-.link-back:hover {
-  background-image: linear-gradient(to bottom right, #3a3939, #555252);
-}
-
-.info-container {
-  margin: 0 auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: 1000px;
-  height: 600px;
-  color: white;
-}
-
-.main-info {
-  margin-top: 20px;
-  border: solid;
-  border-width: 0.1px;
-  border-color: rgb(173, 173, 168);
-  border-radius: 6px;
-  height: fit-content;
-  display: flex;
-}
-
 .user-img {
   height: 150px;
   width: 150px;
@@ -47,10 +12,6 @@
 
 .user-location {
   margin-left: 92px;
-}
-.main-right {
-  text-align: center;
-  margin-left: 200px;
 }
 
 .about-title {
@@ -88,69 +49,6 @@
   margin-top: 50px;
 }
 
-.secondary-info {
-  margin-top: 20px;
-  border: solid;
-  border-width: 0.1px;
-  border-color: rgb(173, 173, 168);
-  border-radius: 6px;
-  height: 100px;
-  text-align: center;
-}
-
-.user-button {
-  height: 30px;
-  width: fit-content;
-  border: none;
-  border-radius: 5px;
-  margin-left: 20px;
-  margin-top: 30px;
-  font-weight: bold;
-}
-
-.light-color {
-  background-color: rgb(219, 219, 174);
-}
-
-.dark-color {
-  background-color: rgb(39, 38, 38);
-  color: aliceblue;
-}
-.light-blue {
-  background-color: rgb(20, 184, 196);
-
-  color: aliceblue;
-}
-.light-green {
-  background-color: rgb(24, 141, 69);
-  color: rgb(224, 214, 214);
-}
-
-.last-5-repos-container {
-  height: fit-content;
-  margin-top: 20px;
-  border: solid;
-  border-width: 0.1px;
-  border-color: rgb(173, 173, 168);
-  border-radius: 6px;
-  margin-bottom: 20px;
-}
-.main-left {
-  text-align: center;
-  width: 260px;
-}
-
-.repo {
-  margin: 0 auto;
-  margin-top: 20px;
-  border: solid;
-  border-width: 0.1px;
-  border-color: rgb(173, 173, 168);
-  border-radius: 6px;
-  width: 900px;
-  height: fit-content;
-  text-align: center;
-}
 .repo-link {
   margin-top: 5px;
   padding: 10px 20px;

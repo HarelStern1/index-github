@@ -1,48 +1,45 @@
 import React, { useState, useRef } from "react";
-import "./styles.css";
 import { addUserToList } from "../../api";
 import spinner from "./../../images/spinner.gif";
 import searchIcon from "./../../images/searchIcon.png";
+import {
+  SearchContainer,
+  Loading,
+  Input,
+  SubmitBtn,
+  SearchForm,
+} from "./SearchArea.styled";
 
 function SearchArea({ setUsers, users }) {
   const [value, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef(null);
   return (
-    <div className="search-area-container">
-      <div action="" className="search-bar-form">
-        <input
+    <SearchContainer>
+      <SearchForm>
+        <Input
           ref={inputRef}
-          className="input"
           placeholder="Search Users..."
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button
+        <SubmitBtn
           type="submit"
-          className="submit-btn"
           onClick={() =>
-            addUserToList(
-              value,
-              setUsers,
-              setValue,
-              setIsLoading,
-              users,
-              inputRef
-            )
+            addUserToList(value, setUsers, setValue, setIsLoading, inputRef)
           }
         >
           <img src={searchIcon} alt="" />
-        </button>
-      </div>
+        </SubmitBtn>
+      </SearchForm>
       {isLoading ? (
-        <div className="loading">
+        <Loading>
           <img src={spinner} alt="" />
-        </div>
+        </Loading>
       ) : (
-        <div className="loading"></div>
+        <Loading></Loading>
       )}
-    </div>
+    </SearchContainer>
   );
 }
 

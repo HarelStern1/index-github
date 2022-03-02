@@ -1,15 +1,17 @@
 import { React, useState } from "react";
-import Container from "./Container";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Home from "./components/Home";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import UserInfo from "./components/UserInfo/UserInfo";
 import About from "./components/About/About";
+import Header from "./components/Header/Header";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
 
   return (
     <div>
-      <BrowserRouter>
+      <Router>
+        <Header />
         <Routes>
           <Route
             exact
@@ -19,11 +21,11 @@ function App() {
           <Route
             exact
             path="/"
-            element={<Container setCurrentUser={setCurrentUser} />}
+            element={<Home setCurrentUser={setCurrentUser} />}
           />
           <Route exact path="/about" element={<About />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }

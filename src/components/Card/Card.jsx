@@ -1,17 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles.css";
+import { UserCard, UserImg, UserName, UserLink } from "./Card.styled";
 
 function Card({ user, setCurrentUser }) {
-  console.log(user);
+  const {
+    data,
+    data: { avatar_url },
+    data: { login },
+  } = user;
   return (
-    <div className="user-card">
-      <img src={user?.data?.avatar_url} alt="" className="user-img-round" />
-      <h2 className="user-name">{user?.data?.login}</h2>
-      <Link to="userinfo" onClick={() => setCurrentUser(user.data)}>
-        <button className="link">More Deatils</button>
+    <UserCard>
+      <UserImg src={avatar_url} alt="" />
+      <UserName>{login}</UserName>
+      <Link to="userinfo" onClick={() => setCurrentUser(data)}>
+        <UserLink>More Details</UserLink>
       </Link>
-    </div>
+    </UserCard>
   );
 }
 

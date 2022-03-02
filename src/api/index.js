@@ -1,39 +1,31 @@
 import axios from "axios";
 
-export const addUserToList = (
-  login,
+export const addUserToList = async (
+  name,
   setUsers,
   setValue,
   setIsLoading,
-  users,
   inputRef
 ) => {
-  setIsLoading(true);
-  axios
-    .get(`https://api.github.com/users/${login}`)
-    .then((data) => {
-      console.log(data);
-      if (data?.data?.login) {
-        // if user found...
-        setUsers((prev) => [...prev, data]);
-        console.log(users);
-      } else {
-        console.log("No users found...");
-      }
-      setIsLoading(false);
-      setValue(""); // resetting the input value
-      inputRef.current.focus();
-    })
-    .catch((err) => {
-      console.log(err);
-      setIsLoading(false);
-      setValue(""); // resetting the input value
-      inputRef.current.focus();
-    });
+  try {
+    const res = await axios.get(`https://api.github.com/users/${name}`);
+    setUsers((prev) => [...prev, res]);
+    setIsLoading(false);
+    setValue(""); // resetting the input value
+    inputRef.current.focus();
+  } catch (err) {
+    console.error(`No Users Found...  ${err.message}`);
+    setIsLoading(false);
+    setValue(""); // resetting the input value
+    inputRef.current.focus();
+  }
 };
 
 export const getRepos = async (url) => {
-  const response = await axios.get(url);
-  console.log(response);
-  return response;
+  try {
+    const response = await axios.get(url);
+    return response;
+  } catch (err) {
+    console.error(err.message);
+  }
 };

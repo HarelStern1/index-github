@@ -1,73 +1,97 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header from "./../Header/Header";
 import "./styles.css";
 import { getRepos } from "./../../api";
+import {
+  BackLink,
+  InfoContainer,
+  MainInfo,
+  MainLeft,
+  MainRight,
+  SecondaryInfo,
+  UserBtn,
+  PublicRepos,
+  Repo,
+} from "./UserInfo.styles";
 
 function UserInfo({ currentUser }) {
   const [repos, setRepos] = useState([]);
 
+  const {
+    repos_url,
+    avatar_url,
+    name,
+    location,
+    bio,
+    login,
+    html_url,
+    public_gists,
+    public_repos,
+    followers,
+    following,
+  } = currentUser;
+
   useEffect(() => {
-    getRepos(currentUser.repos_url).then((res) => setRepos(res.data));
+    getRepos(repos_url).then((res) => setRepos(res.data));
   }, []);
 
   return (
     <div>
-      <Header />
       <Link to="/">
-        <button className="link-back">Back To Search</button>
+        <BackLink>Back To Search</BackLink>
       </Link>
 
-      <div className="info-container">
-        <div className="main-info">
-          <div className="main-left">
-            <img className="user-img" src={currentUser?.avatar_url} alt="" />
-            <h1 className="user-name-main">{currentUser?.name}</h1>
-            <h3 className="user-location">Location: {currentUser?.location}</h3>
-          </div>
-          <div className="main-right">
+      <InfoContainer>
+        <MainInfo>
+          <MainLeft>
+            <img className="user-img" src={avatar_url} alt="" />
+            <h1 className="user-name-main">{name}</h1>
+            <h3 className="user-location">Location: {location}</h3>
+          </MainLeft>
+          <MainRight>
             <h2 className="about-title">About:</h2>
-            <h4 className="user-about">{currentUser?.bio}</h4>
+            <h4 className="user-about">{bio}</h4>
             <h4>
               <strong>Username: </strong>
-              {currentUser.login}
+              {login}
             </h4>
             <div className="a-container">
-              <a href={currentUser?.html_url}>
+              <a href={html_url} target="_blank">
                 <button className="github-link">Visit GitHub Profile</button>
               </a>
             </div>
-          </div>
-        </div>
-        <div className="secondary-info">
-          <button className="user-button light-color">
-            Public Gists: {currentUser.public_gists}
-          </button>
-          <button className="user-button light-blue">
-            Public Repos: {currentUser.public_repos}
-          </button>
-          <button className="user-button light-green">
-            Followers: {currentUser.followers}
-          </button>
-          <button className="user-button dark-color">
-            Following: {currentUser.following}
-          </button>
-        </div>
-        <div className="last-5-repos-container">
+          </MainRight>
+        </MainInfo>
+        <SecondaryInfo>
+          <UserBtn>Public Gists: {public_gists}</UserBtn>
+          <UserBtn className="user-button light-blue">
+            Public Repos: {public_repos}
+          </UserBtn>
+          <UserBtn className="user-button light-green">
+            Followers: {followers}
+          </UserBtn>
+          <UserBtn className="user-button dark-color">
+            Following: {following}
+          </UserBtn>
+        </SecondaryInfo>
+        <PublicRepos>
           <h1 style={{ textAlign: "center" }}>Last Public Repos</h1>
-          {repos.map((repo, idx) => (
-            <div className="repo" key={idx}>
-              <a href={repo.html_url}>
-                <button className="repo-link">{repo.name}</button>
-              </a>
-              <h4 className="repo-description">{repo?.description}</h4>
-              <h5 className="updated">
-                Last updated at: {repo?.updated_at.slice(0, 10)}
-              </h5>
-            </div>
-          ))}
-        </div>
-      </div>
+          {repos.map((repo, idx) => {
+            const { name, description, updated_at } = repo;
+            return (
+              <Repo key={idx}>
+                <a href={html_url} target="_blank">
+                  <button className="repo-link">{name}</button>
+                </a>
+                <h4 className="repo-description">{description}</h4>
+                <h5 className="updated">
+                  Last updated at: {updated_at.slice(0, 10)}
+                </h5>
+              </Repo>
+            );
+          })}
+        </PublicRepos>
+      </InfoContainer>
     </div>
   );
 }

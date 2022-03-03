@@ -14,7 +14,7 @@ function Header() {
           <Link to="/">
             <img src={gitHubIcon} alt="" className="img" />
           </Link>
-          Index GitHub
+          Index Github
         </Typography>
         <div className="links">
           <Link to="/">

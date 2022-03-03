@@ -12,7 +12,7 @@ function About() {
       <AboutContainer>
         <AboutHeading>About</AboutHeading>
         <div>
-          <AboutContent>Search GitHub users app</AboutContent>
+          <AboutContent>Search Github users app</AboutContent>
           <AboutContent>
             Built with React by{""}
             <a href="https://github.com/HarelStern1" target="_blank">

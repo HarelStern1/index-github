@@ -1,30 +1,16 @@
 import axios from "axios";
 
-export const addUserToList = async (
-  name,
-  setUsers,
-  setValue,
-  setIsLoading,
-  inputRef
-) => {
+export const getUser = async (name) => {
   try {
-    const res = await axios.get(`https://api.github.com/users/${name}`);
-    setUsers((prev) => [...prev, res]);
-    setIsLoading(false);
-    setValue(""); // resetting the input value
-    inputRef.current.focus();
+    return await axios.get(`https://api.github.com/users/${name}`);
   } catch (err) {
     console.error(`No Users Found...  ${err.message}`);
-    setIsLoading(false);
-    setValue(""); // resetting the input value
-    inputRef.current.focus();
   }
 };
 
 export const getRepos = async (url) => {
   try {
-    const response = await axios.get(url);
-    return response;
+    return await axios.get(url);
   } catch (err) {
     console.error(err.message);
   }

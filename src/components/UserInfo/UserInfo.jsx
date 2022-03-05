@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import "./styles.css";
 import { getRepos } from "./../../api";
+import { UserContext } from "./../../contexts/UserContext";
 import {
   BackLink,
   InfoContainer,
@@ -12,11 +12,23 @@ import {
   UserBtn,
   PublicRepos,
   Repo,
+  UserImg,
+  UserNameMain,
+  UserLocation,
+  AboutTitle,
+  LinkWrraper,
+  GithubLink,
+  LastPublicRepos,
+  RepoLink,
+  RepoDecription,
+  Updated,
 } from "./UserInfo.styles";
 
-function UserInfo({ currentUser }) {
+function UserInfo() {
   const [repos, setRepos] = useState([]);
-
+  const {
+    currentUserObj: { data: currentUser },
+  } = useContext(UserContext);
   const {
     repos_url,
     avatar_url,
@@ -31,6 +43,25 @@ function UserInfo({ currentUser }) {
     following,
   } = currentUser;
 
+  const userButtons = [
+    {
+      text: "Public Gists",
+      value: public_gists,
+    },
+    {
+      text: "Public Repos",
+      value: public_repos,
+    },
+    {
+      text: "Followers",
+      value: followers,
+    },
+    {
+      text: "Following",
+      value: following,
+    },
+  ];
+
   useEffect(() => {
     getRepos(repos_url).then((res) => setRepos(res.data));
   }, []);
@@ -44,49 +75,42 @@ function UserInfo({ currentUser }) {
       <InfoContainer>
         <MainInfo>
           <MainLeft>
-            <img className="user-img" src={avatar_url} alt="" />
-            <h1 className="user-name-main">{name}</h1>
-            <h3 className="user-location">Location: {location}</h3>
+            <UserImg src={avatar_url} />
+            <UserNameMain>{name}</UserNameMain>
+            <UserLocation>Location: {location}</UserLocation>
           </MainLeft>
           <MainRight>
-            <h2 className="about-title">About:</h2>
-            <h4 className="user-about">{bio}</h4>
+            <AboutTitle>About:</AboutTitle>
+            <h4>{bio}</h4>
             <h4>
               <strong>Username: </strong>
               {login}
             </h4>
-            <div className="a-container">
+            <LinkWrraper>
               <a href={html_url} target="_blank">
-                <button className="github-link">Visit GitHub Profile</button>
+                <GithubLink>Visit GitHub Profile</GithubLink>
               </a>
-            </div>
+            </LinkWrraper>
           </MainRight>
         </MainInfo>
         <SecondaryInfo>
-          <UserBtn>Public Gists: {public_gists}</UserBtn>
-          <UserBtn className="user-button light-blue">
-            Public Repos: {public_repos}
-          </UserBtn>
-          <UserBtn className="user-button light-green">
-            Followers: {followers}
-          </UserBtn>
-          <UserBtn className="user-button dark-color">
-            Following: {following}
-          </UserBtn>
+          {userButtons.map((btn) => (
+            <UserBtn>
+              {btn.text}:{btn.value}
+            </UserBtn>
+          ))}
         </SecondaryInfo>
         <PublicRepos>
-          <h1 style={{ textAlign: "center" }}>Last Public Repos</h1>
+          <LastPublicRepos>Last Public Repos</LastPublicRepos>
           {repos.map((repo, idx) => {
             const { name, description, updated_at } = repo;
             return (
               <Repo key={idx}>
                 <a href={html_url} target="_blank">
-                  <button className="repo-link">{name}</button>
+                  <RepoLink>{name}</RepoLink>
                 </a>
-                <h4 className="repo-description">{description}</h4>
-                <h5 className="updated">
-                  Last updated at: {updated_at.slice(0, 10)}
-                </h5>
+                <RepoDecription>{description}</RepoDecription>
+                <Updated>Last updated at: {updated_at.slice(0, 10)}</Updated>
               </Repo>
             );
           })}

@@ -1,61 +1,71 @@
-import React, { useState, useRef } from "react";
-import { addUserToList } from "../../api";
+import React, { useState, useRef, useContext } from "react";
+import { getUser } from "../../api";
 import spinner from "./../../images/spinner.gif";
 import searchIcon from "./../../images/searchIcon.png";
+import trashIcon from "./../../images/trash.png";
+import { UserContext } from "../../contexts/UserContext";
 import {
   SearchContainer,
   Loading,
   Input,
   SubmitBtn,
   SearchForm,
+  SearchFormWrraper,
+  ClearBtn,
 } from "./SearchArea.styled";
 
-function SearchArea({ setUsers, users }) {
+function SearchArea() {
   const [value, setValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef(null);
 
-  // inputRef.eventListener("keypress", (e) => {
-  //   if (e.keyCode === 13) {
-  //     e.preventDefault();
-  //     addUserToList(value, setUsers, setValue, setIsLoading, inputRef);
-  //   }
-  // });
+  const {
+    usersObj: { data: users, change: changeUsers },
+  } = useContext(UserContext);
 
-  // const handleKeyPress = (event) => {
-  //   if (event.key === "Enter") {
-  //     console.log("enter press here! ");
-  //   }
-  // };
+  const handleSubmit = async () => {
+    try {
+      setIsLoading(true);
+      const { data: userData } = await getUser(value);
+      changeUsers([...users, userData]);
+      setValue("");
+      inputRef.current.focus();
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err.message);
+      setValue("");
+      inputRef.current.focus();
+      setIsLoading(false);
+    }
+  };
+
+  const clearList = () => {
+    changeUsers([]);
+  };
 
   return (
     <SearchContainer>
-      <SearchForm>
-        <Input
-          ref={inputRef}
-          placeholder="Search Users..."
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          onKeyPress={(e) =>
-            e.key === "Enter" &&
-            addUserToList(value, setUsers, setValue, setIsLoading, inputRef)
-          }
-        />
-        <SubmitBtn
-          type="submit"
-          onClick={() =>
-            addUserToList(value, setUsers, setValue, setIsLoading, inputRef)
-          }
-        >
-          <img src={searchIcon} alt="" />
-        </SubmitBtn>
-      </SearchForm>
-      {isLoading ? (
+      <SearchFormWrraper>
+        <SearchForm>
+          <Input
+            ref={inputRef}
+            placeholder="Search Users..."
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            onKeyPress={(e) => e.key === "Enter" && handleSubmit()}
+          />
+          <SubmitBtn type="submit" onClick={handleSubmit}>
+            <img src={searchIcon} alt="" />
+          </SubmitBtn>
+          <ClearBtn>
+            <img src={trashIcon} alt="" onClick={clearList} />
+          </ClearBtn>
+        </SearchForm>
+      </SearchFormWrraper>
+      {isLoading && (
         <Loading>
           <img src={spinner} alt="" />
         </Loading>
-      ) : (
-        <Loading></Loading>
       )}
     </SearchContainer>
   );

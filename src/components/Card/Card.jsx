@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserCard, UserImg, UserName, UserLink } from "./Card.styled";
+import { UserContext } from "../../contexts/UserContext";
 
-function Card({ user, setCurrentUser }) {
+function Card({ user }) {
+  const { avatar_url, login } = user;
   const {
-    data,
-    data: { avatar_url },
-    data: { login },
-  } = user;
+    currentUserObj: { change: changeCurrentUser },
+  } = useContext(UserContext);
+
+  const handleClick = () => changeCurrentUser(user);
   return (
     <UserCard>
       <UserImg src={avatar_url} alt="" />
       <UserName>{login}</UserName>
-      <Link to="userinfo" onClick={() => setCurrentUser(data)}>
+      <Link to="userinfo" onClick={handleClick}>
         <UserLink>More Details</UserLink>
       </Link>
     </UserCard>

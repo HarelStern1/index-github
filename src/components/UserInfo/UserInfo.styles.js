@@ -12,7 +12,7 @@ export const BackLink = styled.button`
   margin-left: 174px;
   font-size: 14px;
 
-  &:hober {
+  &:hover {
     background-image: linear-gradient(to bottom right, #3a3939, #555252);
   }
 `;
@@ -85,4 +85,80 @@ export const Repo = styled.div`
   width: 900px;
   height: fit-content;
   text-align: center;
+`;
+
+export const UserImg = styled.img`
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: 80px;
+`;
+
+export const UserNameMain = styled.h1`
+  margin-left: 82px;
+`;
+
+export const UserLocation = styled.h3`
+  margin-left: 92px;
+`;
+
+export const AboutTitle = styled.h2`
+  margin-top: 50px;
+  text-align: center;
+`;
+
+export const LinkWrraper = styled.div`
+  margin-top: 50px;
+`;
+
+export const GithubLink = styled.button`
+  width: fit-content;
+  height: 45px;
+  border: none;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(17, 87, 42),
+    rgb(43, 231, 115)
+  );
+  color: white;
+  padding: 1em 1.5em;
+  border-radius: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+
+  &:hover {
+    background-image: linear-gradient(
+      to bottom right,
+      rgb(31, 75, 46),
+      rgb(39, 185, 95)
+    );
+  }
+`;
+
+export const LastPublicRepos = styled.h1`
+  text-align: center;
+`;
+
+export const RepoLink = styled.button`
+  margin-top: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgb(6, 125, 180);
+  &:hover {
+    color: rgb(0, 168, 247);
+  }
+`;
+
+export const RepoDecription = styled.h4`
+  margin-top: -6px;
+`;
+
+export const Updated = styled.h5`
+  margin-top: -6px;
 `;

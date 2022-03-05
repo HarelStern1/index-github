@@ -5,6 +5,7 @@ export const SearchContainer = styled.div`
   text-align: center;
   width: 100%;
   padding: 5%;
+  height: 200px;
 `;
 
 export const Loading = styled.div`
@@ -49,4 +50,19 @@ export const SearchForm = styled.div`
   padding: 3px 20px;
   margin: 0 auto;
   margin-top: -50px;
+`;
+
+export const SearchFormWrraper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+`;
+
+export const ClearBtn = styled.button`
+  border: 0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  background-color: transparent;
 `;
